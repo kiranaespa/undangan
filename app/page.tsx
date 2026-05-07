@@ -7,16 +7,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Import Komponen Halaman (Pastikan file ini sudah ada di folder components/pages)
 import Opening from '@/components/pages/opening';
 import Navbar from '@/components/navbar';
+import RSVP from '@/components/pages/rsvp';
+import Gallery from '@/components/pages/gallery';
 
 export default function Home() {
   // State untuk mengontrol apakah undangan sudah dibuka
   const [isOpen, setIsOpen] = useState(false);
+
   // State untuk navigasi menu
   const [activeTab, setActiveTab] = useState("opening");
+  
 
   const renderPage = () => {
     switch (activeTab) {
       case "opening": return <Opening />;
+      case "rsvp": return <RSVP />;
+      case "gallery": return <Gallery />;
+      // Tambahkan case untuk halaman lain seperti "acara", "maps", "gallery" jika sudah dibuat
       default: return <Opening />;
     }
   };
