@@ -2,31 +2,42 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
-export default function Opening() {
+export default function Opening({ onBack }: { onBack: () => void }) {
+  const router = useRouter();
+
   return (
     <section className="relative min-h-screen w-full bg-[#FFF9F5] flex flex-col items-center justify-center p-6 overflow-hidden">
+
+      {/* ✅ Tombol Kembali */}
+      <button
+        onClick={onBack}
+        className="absolute top-6 left-6 z-50 text-sm text-[#ffffff] bg-red-900 backdrop-blur px-4 py-2 rounded-full shadow hover:bg-white transition"
+      >
+        ←
+      </button>
       
-      {/* Ornamen Bunga Atas (Sesuai Asset) */}
-      <motion.div 
+      {/* Ornamen Bunga Atas */}
+      <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="absolute top-0 right-0 w-56 h-56 md:w-80 md:h-80 z-0"
       >
-        <Image 
-          src="/bunga-atas.png" 
-          alt="Ornamen" 
-          width={400} 
-          height={400} 
+        <Image
+          src="/bunga-atas.png"
+          alt="Ornamen"
+          width={400}
+          height={400}
           className="object-contain"
         />
       </motion.div>
 
       {/* Konten Utama */}
       <div className="z-10 flex flex-col md:flex-row items-center gap-8 md:gap-16 max-w-5xl w-full">
-        
-        {/* Teks Graduation Vertikal/Artistik */}
+
+        {/* Graduation Text */}
         <motion.div
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -38,7 +49,7 @@ export default function Opening() {
           </h1>
         </motion.div>
 
-        {/* Info Detail Sekolahan */}
+        {/* Info */}
         <motion.div
           initial={{ x: 50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -48,10 +59,13 @@ export default function Opening() {
           <h2 className="text-[#800000] text-xl md:text-2xl font-bold tracking-[0.2em] uppercase mb-2">
             Undangan <br /> Akhirussanah
           </h2>
+
           <div className="space-y-1 text-gray-600 text-sm md:text-base uppercase tracking-widest">
             <p className="font-semibold text-gray-800">Angkatan 13</p>
             <p>Tahun Pelajaran 2024/2025</p>
-            <p className="font-bold text-[#5D4037]">SMPIT Cahaya Insani Temanggung</p>
+            <p className="font-bold text-[#5D4037]">
+              SMPIT Cahaya Insani Temanggung
+            </p>
           </div>
 
           <p className="mt-6 italic text-gray-500 text-sm md:text-base max-w-xs leading-relaxed">
@@ -59,37 +73,39 @@ export default function Opening() {
             Siapkan Diri Untuk Masa Depan"
           </p>
 
-          {/* Tanggal & Waktu Mini */}
+          {/* Tanggal */}
           <div className="mt-8 flex items-center gap-4 text-[#5D4037]">
             <div className="text-center border-r border-[#5D4037] pr-4">
               <p className="text-xs uppercase">Sabtu</p>
               <p className="text-2xl font-bold font-serif">24</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-widest font-bold">Mei 2025</p>
+              <p className="text-xs uppercase tracking-widest font-bold">
+                Mei 2025
+              </p>
               <p className="text-xs">07.00 - 12.00 WIB</p>
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Ornamen Bunga Bawah */}
-      <motion.div 
+      {/* Ornamen bawah */}
+      <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="absolute bottom-0 left-0 w-56 h-56 md:w-80 md:h-80 z-0 rotate-180"
       >
-        <Image 
-          src="/bunga-atas.png" 
-          alt="Ornamen" 
-          width={400} 
-          height={400} 
+        <Image
+          src="/bunga-atas.png"
+          alt="Ornamen"
+          width={400}
+          height={400}
           className="object-contain"
         />
       </motion.div>
 
-      {/* Watermark / Footer Kecil */}
+      {/* Footer */}
       <div className="absolute bottom-28 md:bottom-10 opacity-30 text-[10px] uppercase tracking-[0.5em] text-[#5D4037]">
         Class of 2025
       </div>
